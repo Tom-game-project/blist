@@ -2,18 +2,23 @@
 #include <stdlib.h>
 #include <stdio.h>
 
-int lt(int *a,int *b){
-    return (a < b);
+int lt(void *a,void *b) {
+    int tmpa ;
+    int tmpb ;
+
+    tmpa = ((int *)a)[0];
+    tmpb = ((int *)b)[0];
+    return (tmpa < tmpb);
 }
 
 int main(void)
 {
-    int a = 1;
-    int b = 2;
+    int a = 4;
+    int b = 6;
     int c = 3;
-    int d = 4;
-    int e = 5;
-    int f = 6;
+    int d = 7;
+    // int e = 5;
+    // int f = 6;
     t_node *lst1;
     t_node *lst2;
 
@@ -21,15 +26,17 @@ int main(void)
     lst2 = NULL;
     push(&lst1, init_node(&a));
     push(&lst1, init_node(&b));
-    push(&lst1, init_node(&c));
+    push(&lst2, init_node(&c));
     push(&lst2, init_node(&d));
-    push(&lst2, init_node(&e));
-    push(&lst2, init_node(&f));
 
     printf("lst 1\n");
     show_list_int(lst1);
     printf("lst 2\n");
     show_list_int(lst2);
-    //t_node *n_lst = minsort(lst1, lst2, lt);
+    t_node *n_lst = minsort(&lst1, &lst2, lt);
+    printf("n_lst\n");
+    show_list_int(n_lst);
+    printf("*lst1 %p\n", lst1);
+    printf("*lst2 %p\n", lst2);
     return (0);
 }

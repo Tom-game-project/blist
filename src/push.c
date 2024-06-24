@@ -19,10 +19,12 @@ int push(t_node **l, t_node *n) {
     tmp = get_back(*l);
     if (tmp == NULL) {
         *l = n;
+        n->pre_node = NULL;
         return (0);
     }
     tmp -> back_node = n;
     n -> pre_node = tmp;
+    n->back_node = NULL;
     return (0);
 }
 

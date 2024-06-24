@@ -4,7 +4,9 @@ SRC = \
 src/init_node.c \
 src/push.c \
 src/pop.c \
-src/util.c
+src/util.c \
+src/sort.c \
+
 OBJ = $(SRC:.c=.o)
 
 TESTFILE = test/test01.c
@@ -27,7 +29,7 @@ re: fclean
 	make
 
 test: $(NAME)
-	$(CC) $(CFLAG) $(TESTFILE) $(NAME)
+	$(CC) $(CFLAG) -g3 $(TESTFILE) $(NAME)
 	./a.out
 	make fclean
 
