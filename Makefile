@@ -5,6 +5,7 @@ src/init_node.c \
 src/push.c
 OBJ = $(SRC:.c=.o)
 
+TESTFILE = test/test00.c
 NAME = blist.a
 
 all: $(NAME) 
@@ -16,10 +17,14 @@ $(NAME):$(OBJ)
 	$(CC) $(CFLAG) -c $< -o $@
 
 clean:
-	rm -f $(BSCSRC:.c=.o) $(BNSSRC:.c=.o)
-
+	rm -f $(OBJ)
 fclean: clean
 	rm -f $(NAME)
 
 re: fclean
 	make
+
+test: $(NAME)
+	$(CC) $(CFLAG) $(TESTFILE) $(NAME)
+	./a.out
+	make fclean
