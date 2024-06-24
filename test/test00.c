@@ -1,5 +1,6 @@
 #include "../src/blist.h"
 #include <stdlib.h>
+#include <stdio.h>
 
 int main(void)
 {
@@ -13,5 +14,13 @@ int main(void)
     push(&list,init_node(b));
 
     show_list(list);
+
+    t_node *elem;
+    elem = pop(&list);
+    while (elem != NULL)
+    {
+        printf("%p\n", elem->data);
+        elem = pop(&list);
+    }
     return (0);
 }

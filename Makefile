@@ -2,7 +2,8 @@ CC = cc
 CFLAG = -Wextra -Werror -Wall
 SRC = \
 src/init_node.c \
-src/push.c
+src/push.c \
+src/pop.c
 OBJ = $(SRC:.c=.o)
 
 TESTFILE = test/test00.c
