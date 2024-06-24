@@ -28,3 +28,5 @@ test: $(NAME)
 	$(CC) $(CFLAG) $(TESTFILE) $(NAME)
 	./a.out
 	make fclean
+
+#.PHONY all clean fclean re test
