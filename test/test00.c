@@ -13,7 +13,7 @@ int main(void)
     push(&list,init_node(b));
     push(&list,init_node(b));
 
-    show_list(list);
+    show_list_str(list);
 
     t_node *elem;
     elem = pop(&list);

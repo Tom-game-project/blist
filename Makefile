@@ -3,10 +3,11 @@ CFLAG = -Wextra -Werror -Wall
 SRC = \
 src/init_node.c \
 src/push.c \
-src/pop.c
+src/pop.c \
+src/util.c
 OBJ = $(SRC:.c=.o)
 
-TESTFILE = test/test00.c
+TESTFILE = test/test01.c
 NAME = blist.a
 
 all: $(NAME) 

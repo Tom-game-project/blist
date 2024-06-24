@@ -26,25 +26,3 @@ int push(t_node **l, t_node *n) {
     return (0);
 }
 
-
-#include <stdio.h>
-
-/// @brief test function
-/// @param l 
-void show_list(t_node *l)
-{
-    t_node *inode;
-    int counter;
-
-    inode = l;
-    counter = 0;
-    while (1)
-    {
-        printf("%d %p\n", counter, inode->data);
-        inode = inode->back_node;
-        counter++;
-        if (inode == NULL)
-            break;
-    }
-        
-}
