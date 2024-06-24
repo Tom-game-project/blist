@@ -16,7 +16,6 @@ t_node *minsort(t_node **lst1,t_node **lst2,int (*lt)(void *,void *)) {
     t_node *lst_tmp1;
     t_node *lst_tmp2;
     t_node *rlst;
-    bool    flag;
 
     lst_tmp1 = NULL;
     lst_tmp2 = NULL;
@@ -28,9 +27,10 @@ t_node *minsort(t_node **lst1,t_node **lst2,int (*lt)(void *,void *)) {
             lst_tmp2 = pop(lst2);
         if (lst_tmp1 == NULL && lst_tmp2 == NULL)
             break;
-        flag = (!(lst_tmp1 == NULL && lst_tmp2 != NULL) && (lst_tmp1 != NULL && lst_tmp2 == NULL)) || 
-        (!(lst_tmp1 == NULL && lst_tmp2 != NULL) && !(lst_tmp1 != NULL && lst_tmp2 == NULL) && lt(lst_tmp1->data, lst_tmp2->data));
-        if (flag)
+        if (
+            (!(lst_tmp1 == NULL && lst_tmp2 != NULL) && (lst_tmp1 != NULL && lst_tmp2 == NULL)) || 
+            (!(lst_tmp1 == NULL && lst_tmp2 != NULL) && !(lst_tmp1 != NULL && lst_tmp2 == NULL) && lt(lst_tmp1->data, lst_tmp2->data))
+        )
         {
             push(&rlst,lst_tmp1);
             lst_tmp1 = NULL;
