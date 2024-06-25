@@ -19,4 +19,6 @@ void    show_list_pointer(t_node *l);
 void    show_list_str(t_node *l);
 void    show_list_int(t_node *l);
 
+void __divi(t_node **lst);
+
 #endif

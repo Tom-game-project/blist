@@ -9,7 +9,6 @@
 
 // t_node **sorted(t_node **head,int (*lt)(void *,void *)) {
 //     t_node *new_head;
-
 // }
 
 t_node *minsort(t_node **lst1,t_node **lst2,int (*lt)(void *,void *)) {
@@ -28,9 +27,8 @@ t_node *minsort(t_node **lst1,t_node **lst2,int (*lt)(void *,void *)) {
         if (lst_tmp1 == NULL && lst_tmp2 == NULL)
             break;
         if (
-            (!(lst_tmp1 == NULL && lst_tmp2 != NULL) && (lst_tmp1 != NULL && lst_tmp2 == NULL)) || 
-            (!(lst_tmp1 == NULL && lst_tmp2 != NULL) && !(lst_tmp1 != NULL && lst_tmp2 == NULL) && lt(lst_tmp1->data, lst_tmp2->data))
-        )
+        (!(lst_tmp1 == NULL && lst_tmp2 != NULL) && (lst_tmp1 != NULL && lst_tmp2 == NULL)) || (!(lst_tmp1 == NULL 
+        && lst_tmp2 != NULL) && !(lst_tmp1 != NULL && lst_tmp2 == NULL) && lt(lst_tmp1->data, lst_tmp2->data)))
         {
             push(&rlst,lst_tmp1);
             lst_tmp1 = NULL;
@@ -41,3 +39,45 @@ t_node *minsort(t_node **lst1,t_node **lst2,int (*lt)(void *,void *)) {
     }
     return (rlst);
 }
+
+void __divi(t_node **lst) {
+    t_node *pre_tmp;
+    t_node *back_tmp;
+    t_node *c_tmp;    // current
+
+    c_tmp = *lst;
+    pre_tmp = NULL;
+    while (c_tmp != NULL) {
+        back_tmp = c_tmp->back_node;
+        if (back_tmp!=NULL)
+            c_tmp->back_node = back_tmp -> back_node;
+        c_tmp->pre_node = pre_tmp;
+        c_tmp = back_tmp;
+        if (c_tmp != NULL)
+            pre_tmp = c_tmp->pre_node->pre_node;
+    }
+}
+
+/// unsafe function
+///
+// t_node *__step2(t_node **lst) {
+//     t_node *rlst;
+//     t_node *back_back_node_tmp;
+
+//     rlst = *lst;
+//     if (*lst == NULL)
+//         return (NULL);
+//     while (1)
+//     {
+//         if (rlst->back_node == NULL || rlst->back_node->back_node == NULL)
+//             break;
+//         else
+//         {
+//             back_back_node_tmp = rlst->back_node->back_node;
+//             rlst->back_node = back_back_node_tmp;
+//             back_back_node_tmp->pre_node = rlst;
+//             rlst = back_back_node_tmp;
+//         }
+//     }
+//     return (*lst);
+// }

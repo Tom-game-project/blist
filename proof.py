@@ -1,3 +1,8 @@
+# Proof of Program Equivalency
+# range of the commit
+# 3b0ddcb147c5aea8485c13a3f03626bc770735aa
+# 298ea775d3eb3b61b118965801c26a4058b4aaf6
+
 
 pattern = []
 for i in (0,1):
