@@ -8,6 +8,11 @@ void show_list_pointer(t_node *l)
     t_node *inode;
     int counter;
 
+    if (l == NULL)
+    {
+        printf("(empty)\n");
+        return ;
+    }
     inode = l;
     counter = 0;
     while (1)
@@ -24,6 +29,11 @@ void show_list_str(t_node *l) {
     t_node *inode;
     int counter;
 
+    if (l == NULL)
+    {
+        printf("(empty)\n");
+        return ;
+    }
     inode = l;
     counter = 0;
     while (1)
@@ -41,6 +51,11 @@ void show_list_int(t_node *l) {
     int counter;
     int *int_tmp;
 
+    if (l == NULL)
+    {
+        printf("(empty)\n");
+        return ;
+    }
     inode = l;
     counter = 0;
     while (1)

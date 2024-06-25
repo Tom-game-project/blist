@@ -40,6 +40,7 @@ t_node *minsort(t_node **lst1,t_node **lst2,int (*lt)(void *,void *)) {
     return (rlst);
 }
 
+/// unsafe function
 void __divi(t_node **lst) {
     t_node *pre_tmp;
     t_node *back_tmp;
@@ -58,26 +59,3 @@ void __divi(t_node **lst) {
     }
 }
 
-/// unsafe function
-///
-// t_node *__step2(t_node **lst) {
-//     t_node *rlst;
-//     t_node *back_back_node_tmp;
-
-//     rlst = *lst;
-//     if (*lst == NULL)
-//         return (NULL);
-//     while (1)
-//     {
-//         if (rlst->back_node == NULL || rlst->back_node->back_node == NULL)
-//             break;
-//         else
-//         {
-//             back_back_node_tmp = rlst->back_node->back_node;
-//             rlst->back_node = back_back_node_tmp;
-//             back_back_node_tmp->pre_node = rlst;
-//             rlst = back_back_node_tmp;
-//         }
-//     }
-//     return (*lst);
-// }
