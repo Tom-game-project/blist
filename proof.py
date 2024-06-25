@@ -4,14 +4,14 @@
 # 298ea775d3eb3b61b118965801c26a4058b4aaf6
 
 
-pattern = []
-for i in (0,1):
-    for j in (0,1):
-        for k in (0,1):
-            pattern.append((i,j,k))
+def pattern():
+    for i in (False, True):
+        for j in (False, True):
+            for k in (False, True):
+                yield (i,j,k)
 
-for expr1,expr2,fx in pattern:
-    flag1 = ((not bool(expr1)) and bool(expr2)) or ((not bool(expr1) and not bool(expr2) and bool(fx)))
+for expr1,expr2,fx in pattern():
+    flag1 = ((not expr1) and expr2) or ((not expr1 and not expr2 and fx))
 
     flag2:bool
     if expr1:
@@ -19,7 +19,7 @@ for expr1,expr2,fx in pattern:
     elif expr2:
         flag2 = True
     else:
-        flag2 = bool(fx)
+        flag2 = fx
     # print(flag1,flag2,flag1 == flag2)
     assert(flag1 == flag2)
 

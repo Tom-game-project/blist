@@ -9,7 +9,7 @@ src/sort.c \
 
 OBJ = $(SRC:.c=.o)
 
-TESTFILE = test/test02.c
+TESTFILE = test/test01.c
 NAME = blist.a
 
 all: $(NAME) 
