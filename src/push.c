@@ -1,6 +1,9 @@
 #include <stdlib.h>
 #include "blist.h"
 
+/// @brief 最も後ろの要素を取得します
+/// @param l 
+/// @return 
 t_node *get_back(t_node *l) {
     t_node *inode;
 
@@ -13,12 +16,16 @@ t_node *get_back(t_node *l) {
     return (inode);
 }
 
-int push(t_node **l, t_node *n) {
+/// @brief lstはリスト、nは追加したい要素
+/// @param lst
+/// @param n 
+/// @return 
+int push(t_node **lst, t_node *n) {
     t_node *tmp;
 
-    tmp = get_back(*l);
+    tmp = get_back(*lst);
     if (tmp == NULL) {
-        *l = n;
+        *lst = n;
         n->pre_node = NULL;
         return (0);
     }

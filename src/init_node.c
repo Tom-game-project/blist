@@ -3,6 +3,7 @@
 
 /// @brief malloc and initialize s_node
 /// @return t_node *
+/// コード内でメモリの解放が発生します
 t_node *init_node(void *a)
 {
     t_node *r;

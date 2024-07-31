@@ -1,6 +1,9 @@
 #include <stdlib.h>
 #include "blist.h"
 
+/// @brief lstはリスト、リストの先頭の要素を取得して削除します
+/// @param lst 
+/// @return 
 t_node *pop(t_node **lst)
 {
     t_node *r_elem;
