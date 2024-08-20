@@ -38,5 +38,6 @@ int main(void)
     show_list_int(n_lst);
     printf("*lst1 %p\n", lst1);
     printf("*lst2 %p\n", lst2);
+    delete_all(&n_lst);
     return (0);
 }

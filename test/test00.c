@@ -21,6 +21,7 @@ int main(void)
     while (elem != NULL)
     {
         printf("%p\n", elem->data);
+        free(elem);
         elem = pop(&lst);
     }
     return (0);

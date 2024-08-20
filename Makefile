@@ -11,7 +11,13 @@ src/del.c
 
 OBJ = $(SRC:.c=.o)
 
-TESTFILE = test/test02.c
+TESTFILE = \
+test/test00.c \
+test/test01.c \
+test/test02.c \
+
+EXECUTABLES = $(TESTFILE:.c=)
+
 NAME = blist.a
 
 all: $(NAME) 
@@ -25,14 +31,21 @@ $(NAME):$(OBJ)
 clean:
 	rm -f $(OBJ)
 fclean: clean
-	rm -f $(NAME)
+	rm -f $(NAME) $(EXECUTABLES)
 
 re: fclean
 	make
 
-test: $(NAME)
-	$(CC) $(CFLAG) $(TESTFILE) $(NAME)
-	./a.out
+$(EXECUTABLES): %: %.c
+	$(CC) $(CFLAG) -o $@ $< $(NAME)
+
+test: $(NAME) $(EXECUTABLES)
+	./test/test00
+	./test/test01
+	./test/test02
 	make fclean
+
+unit: $(NAME)
+	$(CC) $(CFLAG) test/test03.c $(NAME)
 
 #.PHONY all clean fclean re test

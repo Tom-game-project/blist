@@ -13,6 +13,8 @@ t_node *get_back(t_node *l);
 int     push(t_node **l, t_node *n);
 t_node *pop(t_node **lst);
 t_node *minsort(t_node **lst1,t_node **lst2,int (*lt)(void *,void *));
+t_node *merge(t_node **l0, t_node**l1,int comp(void *,void *));
+t_node *merge_sort(t_node *l,int comp(void *,void *));
 
 unsigned int len(t_node **l);
 
