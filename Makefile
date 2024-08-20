@@ -1,11 +1,13 @@
 CC = cc
-CFLAG = -Wextra -Werror -Wall
+CFLAG = -Wextra -Werror -Wall -fsanitize=address
 SRC = \
 src/init_node.c \
 src/push.c \
 src/pop.c \
 src/util.c \
 src/sort.c \
+src/len.c \
+src/del.c
 
 OBJ = $(SRC:.c=.o)
 
@@ -29,7 +31,7 @@ re: fclean
 	make
 
 test: $(NAME)
-	$(CC) $(CFLAG) -g3 $(TESTFILE) $(NAME)
+	$(CC) $(CFLAG) $(TESTFILE) $(NAME)
 	./a.out
 	make fclean
 

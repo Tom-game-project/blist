@@ -14,6 +14,11 @@ int     push(t_node **l, t_node *n);
 t_node *pop(t_node **lst);
 t_node *minsort(t_node **lst1,t_node **lst2,int (*lt)(void *,void *));
 
+unsigned int len(t_node **l);
+
+int delete_all_fn(t_node **l, void (*del)(void *));
+int delete_all(t_node **l);
+
 // util functions
 void    show_list_pointer(t_node *l);
 void    show_list_str(t_node *l);

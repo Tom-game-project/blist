@@ -1,7 +1,7 @@
 #include <stdlib.h>
 #include "blist.h"
 
-/// @brief lstはリスト、リストの先頭の要素を取得して削除します
+/// @brief リストの先頭の要素を取得して削除します。`t_node`内のデータは自分で解放する必要があります。
 /// @param lst 
 /// @return 
 t_node *pop(t_node **lst)

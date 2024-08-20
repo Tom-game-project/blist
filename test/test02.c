@@ -26,4 +26,8 @@ int main(void)
     show_list_str(even);
     printf("odd\n");
     show_list_str(odd);
+
+    delete_all(&even);
+    delete_all(&odd);
+    return 0;
 }
