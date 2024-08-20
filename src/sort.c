@@ -98,21 +98,21 @@ t_node *half_slice(t_node **l,unsigned int length){
 
 t_node *merge_sort(t_node *l,int comp(void *,void *)){
     unsigned int lst_length = len(&l);
-    t_node *tmp0;
+    t_node *tmp0 = NULL;
     t_node *tmp1;
 
     if (lst_length == 0)
         return NULL;
     else if (lst_length == 1)
-        return merge(&l,NULL,comp);
+        return merge(&l, &tmp0, comp);
     else if (lst_length == 2){
         tmp0 = pop(&l);
         tmp1 = pop(&l);
         return merge(&tmp0, &tmp1, comp);
     }else{
         tmp0 = half_slice(&l,lst_length);
-        show_list_int(l);
-        show_list_int(tmp0);
+        // show_list_int(l);
+        // show_list_int(tmp0);
         tmp0 = merge_sort(tmp0,comp);
         tmp1 = merge_sort(l,comp);
         return merge( &tmp0, &tmp1,comp);
